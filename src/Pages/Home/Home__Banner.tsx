@@ -4,7 +4,12 @@ import axios from "axios";
 import { ConnectedUser, API_ENDPOINT } from "../../Constants";
 import HomeImg__Yonsei from "../../Resources/Img/HomeImg__Yonsei-min.png";
 
-export default function HomeBanner() {
+interface HomeBannerProp {
+    background_image: boolean;
+}
+
+
+export default function HomeBanner({background_image}:HomeBannerProp) {
     const [connectedUserNum, setConnectedUserNum] = useState<number>(0);
 
     useEffect(() => {
@@ -25,9 +30,11 @@ export default function HomeBanner() {
 
     return (
         <>
-            <HomeImgContainer>
+            {background_image ?
+            (<HomeImgContainer>
                 <HomeImg src={HomeImg__Yonsei} alt="Yonsei Univ Image" />
-            </HomeImgContainer>
+            </HomeImgContainer>) : <></>
+            }
             <AnnouncementContainer />
             <Announcement>
                 <body>

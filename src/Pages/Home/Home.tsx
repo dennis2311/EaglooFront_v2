@@ -10,7 +10,7 @@ export default function Home() {
     return (
         <>
             <Container>
-                <HomeBanner />
+                <HomeBanner background_image={true}/>
                 <HomeMessage />
                 <HomeEntry />
             </Container>
